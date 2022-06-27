@@ -1,23 +1,22 @@
 #!/bin/bash
-echo "Plug ARDUINO UNO into your PC with the two pins connected."
+echo "Conecta la Arduino con ambos pines conectados."
 read
-echo "Remove the jumper that connect pins."
+echo "Retira el cable que conecta ambos cables."
 read
-echo "Reseting ARDUINO to default firmware..."
+echo "Flaseando la Arduino con el firmware original..."
 dfu-programmer atmega16u2 erase
 dfu-programmer atmega16u2 flash --suppress-bootloader-mem Arduino-COMBINED-dfu-usbserial-atmega16u2-Mega2560-Rev3.hex
 dfu-programmer atmega16u2 reset
-echo "Unplug ARDUINO from pc and plug it again."
+echo "Desconecta la Arduino y conectala de nuevo."
 read
-echo "Upload the code into ARDUINO"
+echo "Abre el Arduino IDE y sube el nuevo sketch"
 read
-echo "Connect two pins to reset ARDUINO"
+echo "Vuelve a conectar ambos pines de la Arduino para resetearla"
 read
-echo "Remove the jumper that connect two pins"
+echo "Desconecta los pines de nuevo"
 read
-echo "Writing Keyboard Firmware"
+echo "Flasheando el firmware de teclado a la Arduino"
 dfu-programmer atmega16u2 erase
 dfu-programmer atmega16u2 flash Arduino-keyboard-0.3.hex
 dfu-programmer atmega16u2 reset
-echo "Done!"
-
+echo "Hecho!"
